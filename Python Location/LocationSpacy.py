@@ -11,13 +11,11 @@ labels = []
 position_start =[]
 position_end = []
 
-for ent in doc.ents:
+for ent in doc.ents:    
     entities.append(ent)
     labels.append(ent.label_)
     position_start.append(ent.start_char)
     position_end.append(ent.end_char)
-
-
 
 df = pd.DataFrame({'Entities':entities,'Labels':labels,'Start':position_start,'End':position_end})
 
