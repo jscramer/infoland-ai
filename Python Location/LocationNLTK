@@ -1,14 +1,12 @@
 from nltk import ne_chunk, pos_tag, word_tokenize
 from nltk.tree import Tree
 
-import nltk
-
 sample_text = "Bij ons bij oogheelkunde in Veldhoven is gisteren patient Bernard onwel geworden na toediening van hypromellose HPS aan beide ogen. Dr. Hazelaar is betrokken geweest bij de behandeling"
+sample_text_english ="Yesterday at our ophthalmology department in Veldhoven, patient Bernard became unwell after administration of hypromellose HPS to both eyes. Dr. Hazelaar has been involved in the treatment"
 
 
 def get_continuous_chunks(text, label):
-    chunked = ne_chunk(pos_tag(word_tokenize(text)))
-    prev = None
+    chunked = ne_chunk(pos_tag(word_tokenize(text))) 
     continuous_chunk = []
     current_chunk = []
 
@@ -27,4 +25,5 @@ def get_continuous_chunks(text, label):
 
 #Print every entitie with the label GPE
 print(get_continuous_chunks(sample_text,'GPE'))
+print(get_continuous_chunks(sample_text_english,'GPE'))
 
