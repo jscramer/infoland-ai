@@ -1,6 +1,6 @@
 import geograpy3
 
-sample_text = "Bij ons bij oogheelkunde in Veldhoven is gisteren een patient Bernard onwel geworden na toedining van hypomellose HPS aan beide ogen. Dr. Hazelaar is betrokken geweest bij de behandeling"
+sample_text = "Bij ons bij oogheelkunde in Veldhoven is gisteren patient Bernard onwel geworden na toediening van hypromellose HPS aan beide ogen. Dr. Hazelaar is betrokken geweest bij de behandeling"
 
 more_places = geograpy3.get_place_context(text = sample_text) 
 

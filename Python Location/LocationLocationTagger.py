@@ -1,6 +1,6 @@
 import locationtagger
 import nltk
-import spacy
+
 
 # essential entity models downloads
 nltk.downloader.download('maxent_ne_chunker')
@@ -12,10 +12,12 @@ nltk.download('averaged_perceptron_tagger')
   
 
 # initializing sample text
-sample_text = "Bij ons bij oogheelkunde in Veldhoven is gisteren een patient onwel geworden na toedining van hypomellose HPS aan beide ogen. Dr. Hazelaar is betrokken geweest bij de behandeling"
+sample_text_english ="Yesterday at our ophthalmology department in Veldhoven, patient Bernard became unwell after administration of hypromellose HPS to both eyes. Dr. Hazelaar has been involved in the treatment"
+
+sample_text = "Bij ons bij oogheelkunde in Veldhoven is gisteren patient Bernard onwel geworden na toediening van hypromellose HPS aan beide ogen. Dr. Hazelaar is betrokken geweest bij de behandeling"
   
 # extracting entities.
-place_entity = locationtagger.find_locations(text = sample_text)
+place_entity = locationtagger.find_locations(text = sample_text_english)
   
 # getting all country regions
 print("The countries regions in text : ")
