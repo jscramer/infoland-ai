@@ -24,6 +24,8 @@ def get_continuous_chunks(text, label):
     return continuous_chunk
 
 #Print every entitie with the label GPE
+print("Nederlandse tekst")
 print(get_continuous_chunks(sample_text,'GPE'))
+print("Engelse tekst")
 print(get_continuous_chunks(sample_text_english,'GPE'))
 
