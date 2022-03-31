@@ -1,0 +1,30 @@
+from nltk import ne_chunk, pos_tag, word_tokenize
+from nltk.tree import Tree
+
+import nltk
+
+sample_text = "Bij ons bij oogheelkunde in Veldhoven is gisteren patient Bernard onwel geworden na toediening van hypromellose HPS aan beide ogen. Dr. Hazelaar is betrokken geweest bij de behandeling"
+
+
+def get_continuous_chunks(text, label):
+    chunked = ne_chunk(pos_tag(word_tokenize(text)))
+    prev = None
+    continuous_chunk = []
+    current_chunk = []
+
+    for subtree in chunked:
+        if type(subtree) == Tree and subtree.label() == label:
+            current_chunk.append(" ".join([token for token, pos in subtree.leaves()]))
+        if current_chunk:
+            named_entity = " ".join(current_chunk)
+            if named_entity not in continuous_chunk:
+                continuous_chunk.append(named_entity)
+                current_chunk = []
+        else:
+            continue
+
+    return continuous_chunk
+
+#Print every entitie with the label GPE
+print(get_continuous_chunks(sample_text,'GPE'))
+
