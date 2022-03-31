@@ -1,14 +1,13 @@
-import stanza
+from transformers import AutoTokenizer, AutoModelForTokenClassification
+from transformers import pipeline
 
+tokenizer = AutoTokenizer.from_pretrained("dslim/bert-large-NER")
+model = AutoModelForTokenClassification.from_pretrained("dslim/bert-large-NER")
 
+nlp = pipeline("ner", model=model, tokenizer=tokenizer)
 sample_text_english ="Yesterday at our ophthalmology department in Veldhoven, patient Bernard became unwell after administration of hypromellose HPS to both eyes. Dr. Hazelaar has been involved in the treatment"
-
 sample_text = "Bij ons bij oogheelkunde in Veldhoven is gisteren patient Bernard onwel geworden na toediening van hypromellose HPS aan beide ogen. Dr. Hazelaar is betrokken geweest bij de behandeling"
 
-stanza.download('en')
-nlp = stanza.Pipeline(lang='en', processors='tokenize,mwt,ner', use_gpu=True,)
 
-doc = nlp(sample_text)
-docEng = nlp(sample_text_english)
-
-print(*[f'entity: {ent.text}\ttype: {ent.type}' for ent in docEng.ents], sep='\n')
+for entity in nlp(sample_text):
+    print(entity)
