@@ -1,6 +1,8 @@
 import spacy
-import pandas as pd
 import time
+
+def getLocation(jsonForm, text):
+    print("Hello")
 
 nlpDutch = spacy.load("nl_core_news_lg")
 nlpEnglish = spacy.load("en_core_web_trf")
@@ -32,9 +34,6 @@ for ent in doc.ents:
     position_start.append(ent.start_char)
     position_end.append(ent.end_char)
 
-df = pd.DataFrame({'Entities':entities,'Labels':labels,'Start':position_start,'End':position_end})
-
-print(df)
 
 #English Entities
 for ent in docEng.ents:    
@@ -43,8 +42,5 @@ for ent in docEng.ents:
     position_startEng.append(ent.start_char)
     position_endEng.append(ent.end_char)
 
-dfEng = pd.DataFrame({'Entities':entitiesEng,'Labels':labelsEng,'Start':position_startEng,'End':position_endEng})
-
-print(dfEng)
 end = time.time()
 print(end - start)

@@ -1,0 +1,11 @@
+{
+	"form_id": 123,
+	"fields": [
+		{
+			"field_id": 1002,
+			"values": [{ "locatie": "Test Locatie" }, { "dokter": "Test Dokter" }, { "patient": "Test Patient" }]
+		},
+		{ "field_id": 1005, "values": [] },
+		{ "field_id": 1008, "values": [] }
+	]
+}
