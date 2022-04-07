@@ -1,6 +1,6 @@
 import locationtagger
 import nltk
-
+import time
 
 # essential entity models downloads
 nltk.downloader.download('maxent_ne_chunker')
@@ -10,6 +10,7 @@ nltk.downloader.download('maxent_treebank_pos_tagger')
 nltk.downloader.download('punkt')
 nltk.download('averaged_perceptron_tagger')
   
+start = time.time()
 
 # initializing sample text
 sample_text_english ="Yesterday at our ophthalmology department in Veldhoven, patient Bernard became unwell after administration of hypromellose HPS to both eyes. Dr. Hazelaar has been involved in the treatment"
@@ -43,3 +44,5 @@ print(place_entity.other_regions)
 print("All other entities in text : ")
 print(place_entity.other)
 
+end = time.time()
+print(end - start)

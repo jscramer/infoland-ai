@@ -1,8 +1,12 @@
 from transformers import AutoTokenizer, AutoModelForTokenClassification
 from transformers import pipeline
+import time
+
 
 tokenizer = AutoTokenizer.from_pretrained("dslim/bert-large-NER")
 model = AutoModelForTokenClassification.from_pretrained("dslim/bert-large-NER")
+
+start = time.time()
 
 nlp = pipeline("ner", model=model, tokenizer=tokenizer)
 sample_text_english ="Yesterday at our ophthalmology department in Veldhoven, patient Bernard became unwell after administration of hypromellose HPS to both eyes. Dr. Hazelaar has been involved in the treatment"
@@ -11,3 +15,6 @@ sample_text = "Bij ons bij oogheelkunde in Veldhoven is gisteren patient Bernard
 
 for entity in nlp(sample_text):
     print(entity)
+
+end = time.time()
+print(end - start)
