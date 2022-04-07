@@ -1,9 +1,6 @@
 import spacy
 import time
 
-def getLocation(jsonForm, text):
-    print("Hello")
-
 nlpDutch = spacy.load("nl_core_news_lg")
 nlpEnglish = spacy.load("en_core_web_trf")
 

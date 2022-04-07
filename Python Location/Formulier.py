@@ -1,9 +1,10 @@
 import json
-
-from LocationSpacy import getLocation
+from SpacyModule import getLocation
 
 sample_text_english ="Yesterday at our ophthalmology department in Veldhoven, patient Bernard became unwell after administration of hypromellose HPS to both eyes. Dr. Hazelaar has been involved in the treatment"
 sample_text = "Bij ons bij oogheelkunde in Veldhoven is gisteren patient Bernard onwel geworden na toediening van hypromellose HPS aan beide ogen. Dr. Hazelaar is betrokken geweest bij de behandeling"
+
+language = "Dutch"
 
 def load_json(filename):
     with open(filename, 'r') as f:
@@ -34,12 +35,15 @@ def get_values(data):
                 for (key, value) in values[i].items():
                     match key:
                         case "locatie":
-                            print(f"De locatie is: {value}")
-                            print(getLocation())
-                        case "dokter": 
-                            print(f"De dokter is: {value}")
-                        case "patient":
-                            print(f"De patient is: {value}")
+                            print("Locatie gevonden in formulier")
+                            print()
+                            values[i][key] = getLocation(value,sample_text,language)[0] #TODO: [0] fix voor test weghalen en zorgen dat er maar 1 locatie uitkomt
+                            #print("Locatie ingevuld:",value)
+                        #case "dokter": 
+                        #    print(f"De dokter is: {value}")
+                        #case "patient":
+                            #print(f"De patient is: {value}")
+    print(d)
                 
 
 
