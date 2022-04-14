@@ -1,0 +1,134 @@
+{
+    "form_id": 0,
+    "title": "string",
+    "type": "full",
+    "description": "string",
+    "message_after_sending": "string",
+    "language": "string",
+    "group": {
+      "group_id": 0,
+      "form_type": "reporter",
+      "active": true,
+      "category": {
+        "category_id": 0,
+        "name": "string"
+      },
+      "icon": {
+        "icon_color": "string",
+        "icon_material_design_name": "string"
+      },
+      "visibility": "private",
+      "can_print_after_sending": true,
+      "can_mail_after_sending": true,
+      "show_navigate_to_case_after_sending": true
+    },
+    "design": {
+      "elements": [
+        {
+          "element_type": "sub_header",
+          "column_span": 0,
+          "column_index": 0,
+          "whitespace_before": 0,
+          "whitespace_after": 0,
+          "first_on_row": true,
+          "text": "string",
+          "field": {
+            "type": "text",
+            "field_id": 0,
+            "required": true,
+            "read_only": true,
+            "default_value": {},
+            "description": "string",
+            "allow_future_dates": true,
+            "allow_past_dates": true,
+            "date_display_type": "date",
+            "min_numeric_value": 0,
+            "max_numeric_value": 0,
+            "only_integers": true,
+            "multi_select": true,
+            "list_display_type": "checkbox",
+            "allow_other_viz": true,
+            "has_locations": true,
+            "text_lines": 0,
+            "max_length": 0,
+            "name": "string",
+            "regular_expression": {
+              "regex_id": 0,
+              "name": "string",
+              "regular_expression": "string",
+              "description": "string",
+              "validation_error_message": "string"
+            },
+            "list_items": [
+              {
+                "list_item_id": 0,
+                "name": "string",
+                "numeric_value": 0,
+                "location": {
+                  "gps_Location": {
+                    "latitude": 0,
+                    "longitude": 0
+                  },
+                  "location_id": 0,
+                  "name": "string",
+                  "country_code": "string"
+                }
+              }
+            ],
+            "matrix_display_type": [
+              "numeric"
+            ],
+            "x_field": {
+              "field_id": 0,
+              "name": "string"
+            },
+            "y_field": {
+              "field_id": 0,
+              "name": "string"
+            },
+            "z_field": {
+              "field_id": 0,
+              "name": "string"
+            },
+            "risk_sections": [
+              {
+                "risk_section_id": 0,
+                "from": 0,
+                "to": 0,
+                "color": "string",
+                "name": "string"
+              }
+            ],
+            "cells": [
+              {
+                "x_id": 0,
+                "y_id": 0,
+                "value": 0,
+                "section": 0
+              }
+            ],
+            "fields": [
+              {
+                "field_id": 0,
+                "name": "string"
+              }
+            ],
+            "operation": "not_set",
+            "external_source_id": 0,
+            "lookup_items": [
+              {
+                "field_id": 0,
+                "external_id": 0,
+                "required_lookup": true
+              }
+            ],
+            "card_file": {
+              "card_file_id": 0,
+              "plural_name": "string",
+              "singular_name": "string"
+            }
+          }
+        }
+      ]
+    }
+  }
