@@ -36,7 +36,7 @@ def get_values(data):
                     match key:
                         case "locatie":
                             print("Locatie gevonden in formulier")
-                            print()
+                         
                             values[i][key] = getLocation(value,sample_text,language)[0] #TODO: [0] fix voor test weghalen en zorgen dat er maar 1 locatie uitkomt
                             #print("Locatie ingevuld:",value)
                         #case "dokter": 
