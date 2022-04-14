@@ -1,0 +1,19 @@
+{
+    "locations": [
+        {
+            "location":{
+                "name":"Veldhoven"
+            }
+        },
+        {
+            "location":{
+                "name":"Eindhoven"
+            }
+        },
+        {
+            "location":{
+                "name":"Geldrop"
+            }
+        }  
+    ]
+}
