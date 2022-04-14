@@ -48,4 +48,4 @@ def get_values(data):
 
 
 
-get_values(load_json('data.json'))
+get_values(load_json('./jsonTestFiles/data.json'))

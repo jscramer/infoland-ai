@@ -1,5 +1,5 @@
 import json
-with open('locationListExample.json') as location_data_file:    
+with open('./jsonTestFiles/locationListExample.json') as location_data_file:    
     location_data = json.load(location_data_file)
 
 #Get Locations from list -> Currently making list based on json file.

@@ -2,7 +2,7 @@ import json
 import spacy
 import urllib.request
 
-with open('locationListExample.json') as location_data_file:    
+with open('./jsonTestFiles/locationListExample.json') as location_data_file:    
     location_data = json.load(location_data_file)
 
 
