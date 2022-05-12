@@ -1,0 +1,13 @@
+{
+    "doctors": [
+        {
+            "name": "Hazelaar"
+        },
+        {
+            "name": "Coenders"
+        },
+        {
+            "name": "Janssen"
+        }  
+    ]
+}
