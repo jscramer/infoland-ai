@@ -1,15 +1,42 @@
 import json
+from sqlite3 import Date
 import spacy
 import urllib.request
 
 with open('./jsonTestFiles/locationListExample.json') as location_data_file:    
     location_data = json.load(location_data_file)
 
-
 nlpDutch = spacy.load("nl_core_news_lg")
-nlpEnglish = spacy.load("en_core_web_trf")
+
+organisations = []
+persons= []
 locations = []
+time = []
+date = []
+
+
 locationInTextAndWebsite = []
+
+def getPersons():
+    return persons
+
+def getEntities(jsonform, text):   
+    doc = nlpDutch(text)
+    
+    for ent in doc.ents:                 
+        match ent.label_:
+            case "GPE":
+                 locations.append(ent.text)
+            case "PERSON":
+                 persons.append(ent)                    
+            case "ORG":    
+                 organisations.append(ent.text)
+            case "TIME":
+                 time.append(ent.text)
+            case "DATE":
+                 date.append(ent.text)
+               
+        
 
 def getLocation(jsonForm, text, language):
     if(language == "Dutch"):
