@@ -1,9 +1,11 @@
 from SpacyModule import getLocation
+import personFilter
 import json
 
 
 sample_text_english ="Yesterday at our ophthalmology department in Veldhoven, patient Bernard became unwell after administration of hypromellose HPS to both eyes. Dr. Hazelaar has been involved in the treatment"
-sample_text = "Bij ons bij oogheelkunde in Veldhoven is gisteren patient Bernard onwel geworden na toediening van hypromellose HPS aan beide ogen. Dr. Hazelaar is betrokken geweest bij de behandeling"
+sample_text = "Jorn is in Eindhoven geweest"
+#"Bij ons bij oogheelkunde in Veldhoven is gisteren patient Bernard onwel geworden na toediening van hypromellose HPS aan beide ogen. Dr. Hazelaar is betrokken geweest bij de behandeling"
 
 language = "Dutch"
 
@@ -35,15 +37,19 @@ def get_values(data):
             for i in range(len(values)):
                 for (key, value) in values[i].items():
                     match key:
-                        case "locatie":
-                            print("Locatie gevonden in formulier")                            
+                        case "locatie":                                                     
                             values[i][key] = getLocation(value,sample_text,language)[0] #TODO: [0] fix voor test weghalen en zorgen dat er maar 1 locatie uitkomt
                             #print("Locatie ingevuld:",value)
-                        #case "dokter": 
+                        
+                        case "dokter": 
+                            print("Dokter gevonden in formulier")  
+                            values[i][key] = personFilter.getPerson(value, sample_text, key)
                         #    print(f"De dokter is: {value}")
-                        #case "patient":
+                        case "patient":
+                            print("Patient gevonden in formulier")  
+                            values[i][key] = personFilter.getPerson(value, sample_text, key)
                             #print(f"De patient is: {value}")
-    #print(d)
+    print(d)
                 
 
 

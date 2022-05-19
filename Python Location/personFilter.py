@@ -14,13 +14,12 @@ questionModelAnswer = []
 
 def load_json(filename):
     with open(filename, 'r') as f:
-        data = json.load(f)
-    print(type(data))
+        data = json.load(f)    
     return data
 
 def getPerson(jsonForm, text, kindOfPerson):
     person = []
-    if kindOfPerson == "Dokter":
+    if kindOfPerson == "dokter":
         #Using TestData / API to get Doctors
         person = getDoctorFromZenya(text)
     else:
@@ -28,9 +27,10 @@ def getPerson(jsonForm, text, kindOfPerson):
         person = getPersonsWithQuestionModel(text)
 
 
-    print(person)
     #Using the spacy module to get the persons
     #persons = getPersonsWithSpacy(jsonForm, text)
+    return person
+   
     
       
 
@@ -39,8 +39,9 @@ def getDoctorFromZenya(text):
     doctors = load_json('./jsonTestFiles/doctorListExample.json')
 
     #Check if doctor from list is in the text -> TODO: Check if doctor is not the patient here.
-    for doctor in doctors['doctors']:
-        if text.find(doctor['name']):            
+    for doctor in doctors['doctors']:       
+        if text.find(doctor['name']) != -1:  
+            
             return doctor['name']
             
 
@@ -69,8 +70,9 @@ def getPersonsWithQuestionModel(text):
     'question': whoQuestion})
 
 
-    print(whoAnswer['answer'])
-    print(toWhomAnswer['answer'])
+    return whoAnswer['answer']
+    #print(whoAnswer['answer'])
+    #print(toWhomAnswer['answer'])
  
 
 #Function that starts when running the python file
