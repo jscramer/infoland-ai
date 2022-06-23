@@ -1,6 +1,8 @@
 from transformers import AutoTokenizer, AutoModelForTokenClassification
 from transformers import pipeline
+from transformers import logging
 
+logging.set_verbosity_error()
 
 tokenizer = AutoTokenizer.from_pretrained("henryk/bert-base-multilingual-cased-finetuned-dutch-squad2")
 model = AutoModelForTokenClassification.from_pretrained("henryk/bert-base-multilingual-cased-finetuned-dutch-squad2")

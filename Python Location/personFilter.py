@@ -3,6 +3,7 @@ import QuestionModel as questionModel
 import json
 from transformers import logging
 
+logging.set_verbosity_error()
 
 sample_text_english ="Yesterday at our ophthalmology department in Veldhoven, patient Bernard became unwell after administration of hypromellose HPS to both eyes. Dr. Hazelaar has been involved in the treatment"
 sample_text = "Bij ons bij oogheelkunde in Veldhoven is gisteren de heer Bernard onwel geworden na toediening van hypromellose HPS aan beide ogen. Dokter Hazelaar is betrokken geweest bij de behandeling"
@@ -52,29 +53,34 @@ def getPersonsWithSpacy(jsonForm, text):
 
 
 def getPersonsWithQuestionModel(text):  
+    #Removing Doctors from dutch text, this to ensure they are not picked as person
+    newtext = text.replace("dokter", "")
+    newtext2 = newtext.replace("Dokter", "")    
+      
     #Get an answer on the question what has happened. This helps with determing to whom it happened -> The patient 
     whatQuestion = "Wat is er gebeurd?"
     whatQuestionAnswer = questionModel.questionmodel({
-    'context': text,
+    'context': newtext2,
     'question': whatQuestion})
     
     toWhomQuestion = "Bij wie is" + whatQuestionAnswer['answer']
     whoQuestion = "Wie is de Patiënt?"
     
     toWhomAnswer = questionModel.questionmodel({
-    'context': text,
+    'context': newtext2,
     'question': toWhomQuestion})
 
     whoAnswer = questionModel.questionmodel({
-    'context': text,
+    'context': newtext2,
     'question': whoQuestion})
 
+    #print(whoAnswer['answer'])
+    #print(toWhomAnswer['answer'])    
 
     return whoAnswer['answer']
-    #print(whoAnswer['answer'])
-    #print(toWhomAnswer['answer'])
+    
  
 
 #Function that starts when running the python file
-getPerson(load_json('./jsonTestFiles/data.json'), sample_text, "Dokter")
+getPerson(load_json('./jsonTestFiles/data.json'), sample_text, "patient")
 

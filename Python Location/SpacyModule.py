@@ -21,7 +21,7 @@ def getPersons():
     return persons
 
 def getTime():
-    return time + date;
+    return time + date
 
 def getEntities(jsonform, text):   
     doc = nlpDutch(text)
